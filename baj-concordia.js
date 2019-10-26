@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name BAJ Conconrdia Enhancements
-// @description Updates colours to player's preferred colours; adds auto-refresh and notifications
+// @description Updates colours to players' preferred colours; adds auto-refresh and notifications
 // @version  1
 // @grant unsafeWindow
 // @grant GM_notification
