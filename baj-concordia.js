@@ -8,6 +8,9 @@
 // @include http://boiteajeux.net/jeux/ccd/partie.php?id=*
 // @require http://code.jquery.com/jquery-1.7.2.min.js
 // @author David Weinberg and Dr Julia Peetz
+// 😖😖😖😖😖😖😖this is a stupid exercise 😬😬😬😬
+
+
 // ==/UserScript==
 /* KNOWN LIMITATIONS:
  - Architecting and other actions that change the board state will revert to original colours in the middle of the action. Some of these have been hooked into, but there are multiple and it is brittle, so looking for a better solution.
