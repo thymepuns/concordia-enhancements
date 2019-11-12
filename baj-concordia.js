@@ -8,9 +8,6 @@
 // @include http://boiteajeux.net/jeux/ccd/partie.php?id=*
 // @require http://code.jquery.com/jquery-1.7.2.min.js
 // @author David Weinberg and Dr Julia Peetz
-// 😖😖😖😖😖😖😖this is a stupid exercise 😬😬😬😬
-
-
 // ==/UserScript==
 /* KNOWN LIMITATIONS:
  - Architecting and other actions that change the board state will revert to original colours in the middle of the action. Some of these have been hooked into, but there are multiple and it is brittle, so looking for a better solution.
@@ -106,26 +103,37 @@ function updateColours() {
 }
 
 function addNotifications() {
+  var nextPlayer = null;
   $j('span[id^=lienjoueur_]').each(function (index, element) {
     var colour = $j(element).css("color");
     var isTurn = colour === "rgb(247, 188, 20)";
     var player = $j(element).text().toUpperCase();
     if (isTurn) {
-      if (showNotifications && player !== lastPlayer && lastPlayer !== null) {
-        GM_notificationShim(
-          {
-            title: 'Concordia',
-            text: "It is " + player + "'s turn!\n" + gameName,
-            image: 'http://www.boiteajeux.net/jeux/ccd/img/city4.png',
-            timeout: 60000,
-            onclick: function () {
-              window.focus();
-            }
-          });
+      if (nextPlayer !== null) {
+        //when selecting forum tiles, it can be multiple players' turn
+        nextPlayer = "multiple player";   
+      } else {
+        nextPlayer = player;
       }
-      lastPlayer = player;
     }
   });
+  if (showNotifications && nextPlayer !== lastPlayer && lastPlayer !== null) {
+    showNotification(nextPlayer, gameName);
+  }
+  lastPlayer = nextPlayer;
+}
+
+function showNotification(player, gameName) {
+   GM_notificationShim(
+     {
+       title: 'Concordia',
+       text: "It is " + player + "'s turn!\n" + gameName,
+       image: 'http://www.boiteajeux.net/jeux/ccd/img/city4.png',
+       timeout: 60000,
+       onclick: function () {
+         window.focus();
+       }
+     });
 }
 
 function main() {
@@ -209,6 +217,8 @@ $j(document).ready(function () {
     enhancePage();
   });
 
+  // 😖😖😖😖😖😖😖this is a stupid exercise 😬😬😬😬
+  
   document.addEventListener("validerArchitecteDeplacements", function () {
     enhancePage();
   });
