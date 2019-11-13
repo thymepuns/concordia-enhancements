@@ -167,7 +167,6 @@ function main() {
   };
 }
 
-   // While also offering delightful commentary. 😈😈😈😈😈
 
 
 function GM_notificationShim(notificationDetails) {
