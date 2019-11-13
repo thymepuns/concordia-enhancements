@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name BAJ Conconrdia Enhancements
+// @name BAJ Concordia Enhancements
 // @description Updates colours to players' preferred colours; adds auto-refresh and notifications
 // @version  1
 // @grant unsafeWindow
@@ -102,6 +102,7 @@ function updateColours() {
     changeColour(index, item);
   });
 }
+  // David can't spell. 🙄🙄
 
 function addNotifications() {
   var nextPlayer = null;
@@ -123,6 +124,9 @@ function addNotifications() {
       }
     }
   });
+ 
+   // So this fixes the spelling mistake. 🤞
+ 
   if (showNotifications && nextPlayer !== lastPlayer && lastPlayer !== null) {
     showNotification(nextPlayer, gameName);
   }
@@ -164,6 +168,8 @@ function main() {
     document.dispatchEvent(event);
   };
 }
+
+   // While also offering delightful commentary. 😈😈😈😈😈
 
 
 function GM_notificationShim(notificationDetails) {
