@@ -38,6 +38,7 @@ var showNotifications = true;
 
 var $j = $;
 var lastPlayer = null;
+var isMyTurn = false;
 var loggedInPlayer;
 var gameName;
 
@@ -104,6 +105,7 @@ function updateColours() {
 
 function addNotifications() {
   var nextPlayer = null;
+  isMyTurn = false;
   $j('span[id^=lienjoueur_]').each(function (index, element) {
     var colour = $j(element).css("color");
     var isTurn = colour === "rgb(247, 188, 20)";
@@ -114,6 +116,10 @@ function addNotifications() {
         nextPlayer = "multiple player";   
       } else {
         nextPlayer = player;
+      }
+      
+      if (player == loggedInPlayer) {
+        isMyTurn = true;
       }
     }
   });
@@ -234,7 +240,7 @@ $j(document).ready(function () {
 
 
   setInterval(function () {
-    if (lastPlayer !== loggedInPlayer) {
+    if (!isMyTurn) {
       unsafeWindow.actualiserPage();
     }
   }, refreshInterval);
