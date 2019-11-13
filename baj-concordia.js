@@ -124,7 +124,6 @@ function addNotifications() {
     }
   });
  
-   // So this fixes the spelling mistake. 🤞
  
   if (showNotifications && nextPlayer !== lastPlayer && lastPlayer !== null) {
     showNotification(nextPlayer, gameName);
