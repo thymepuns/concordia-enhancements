@@ -102,7 +102,6 @@ function updateColours() {
     changeColour(index, item);
   });
 }
-  // David can't spell. 🙄🙄
 
 function addNotifications() {
   var nextPlayer = null;
