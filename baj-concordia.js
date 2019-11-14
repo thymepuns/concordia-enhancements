@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name BAJ Conconrdia Enhancements
+// @name BAJ Concordia Enhancements
 // @description Updates colours to players' preferred colours; adds auto-refresh and notifications
 // @version  1
 // @grant unsafeWindow
@@ -123,6 +123,8 @@ function addNotifications() {
       }
     }
   });
+ 
+ 
   if (showNotifications && nextPlayer !== lastPlayer && lastPlayer !== null) {
     showNotification(nextPlayer, gameName);
   }
@@ -164,6 +166,7 @@ function main() {
     document.dispatchEvent(event);
   };
 }
+
 
 
 function GM_notificationShim(notificationDetails) {
