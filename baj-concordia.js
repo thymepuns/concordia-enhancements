@@ -237,6 +237,14 @@ $j(document).ready(function () {
   });
 
 
+  document.addEventListener("keypress", function(event) {
+    if (event.key === 'r') {
+      enhancePage();
+    }
+  });
+
+
+
   $j('.clRoadArea').on('click', function () {
     enhancePage();
   });
@@ -252,4 +260,3 @@ $j(document).ready(function () {
   script.appendChild(document.createTextNode('(' + main + ')();'));
   (document.body || document.head || document.documentElement).appendChild(script);
 });
-
